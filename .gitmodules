@@ -4,3 +4,9 @@
 [submodule "cmake-helpers"]
 	path = modules/cmake-helpers
 	url = https://github.com/bijn/cmake-helpers
+[submodule "asio"]
+	path = modules/asio
+	url = https://github.com/chriskohlhoff/asio
+[submodule "cli11"]
+	path = modules/cli11
+	url = https://github.com/CLIUtils/CLI11

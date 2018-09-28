@@ -25,6 +25,9 @@ option(WITH_pbc_TESTS "Build pbc tests." OFF)
 
 # Dependencies ---------------------------------------------------------
 
+include_directories(${PROJECT_SOURC_DIR}/modules/asio/asio/include)
+add_compile_options("-DASIO_STANDALONE")
+
 if(WITH_pbc_TESTS AND NOT TARGET gtest)
   if(MSVC)
     force_bool(gtest_force_shared_crt ON)
