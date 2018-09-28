@@ -1,0 +1,41 @@
+image: 
+  - ubuntu1804
+  - Visual Studio 2017
+
+platform: x64
+
+environment:
+  MSVC_DEFAULT_OPTIONS: ON
+  matrix:
+    - CMAKE_GENERATOR: -G"Visual Studio 15 2017 Win64"
+
+configuration:
+  - Debug
+  - Release
+
+init:
+  - sh: sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  - sh: sudo apt update
+  - sh: sudo apt install gcc-8 g++-8
+
+install:
+  # Both
+  - git submodule update --init --recursive
+
+  # Linux
+  - sh: sudo apt --yes install cmake
+
+build_script:
+  # Linux
+  - sh: mkdir build && cd build
+  - sh: cmake .. -DCMAKE_BUILD_TYPE=$configuration -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 -DCMAKE_C_COMPILER=/usr/bin/gcc-8
+  - sh: make -j4 
+
+  # Windows
+  - cmd: mkdir build && cd build
+  - cmd: cmake .. %CMAKE_GENERATOR% -DCMAKE_BUILD_TYPE=%configuration% 
+  - cmd: cmake --build . --config %configuration% -- /maxcpucount:4 /verbosity:quiet
+
+test_script:
+  - cmd: ctest --build-config %configuration% --parallel 4 --output-on-failure
+  - sh: ctest -j4
