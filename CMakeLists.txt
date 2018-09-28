@@ -25,8 +25,7 @@ option(WITH_pbc_TESTS "Build pbc tests." OFF)
 
 # Dependencies ---------------------------------------------------------
 
-include_directories(${PROJECT_SOURC_DIR}/modules/asio/asio/include)
-add_compile_options("-DASIO_STANDALONE")
+add_subdirectory(${PROJECT_SOURCE_DIR}/modules/cli11)
 
 if(WITH_pbc_TESTS AND NOT TARGET gtest)
   if(MSVC)
@@ -35,6 +34,10 @@ if(WITH_pbc_TESTS AND NOT TARGET gtest)
 
   add_subdirectory(${PROJECT_SOURCE_DIR}/modules/gtest)
 endif()
+
+# Adding globally because almost everything will use asio.
+include_directories(${PROJECT_SOURCE_DIR}/modules/asio/asio/include)
+add_compile_options("-DASIO_STANDALONE")
 
 # Source ---------------------------------------------------------------
 
@@ -49,6 +52,8 @@ include_directories(
   ${PROJECT_SOURCE_DIR}/include
   ${PROJECT_BINARY_DIR}/include # Needed for configured file
 )
+
+add_subdirectory(${PROJECT_SOURCE_DIR}/source)
 
 # Tests ----------------------------------------------------------------
 
