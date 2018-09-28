@@ -1,4 +1,4 @@
 # pbc
-[![Build status](https://ci.appveyor.com/api/projects/status/4o81htevsop5swpo?svg=true)](https://ci.appveyor.com/project/pjwoodard/certificator)
+[![Build status](https://ci.appveyor.com/api/projects/status/x9dtvskffi3rlv6t)](https://ci.appveyor.com/project/bijn/pbc)
 
 chat
