@@ -1,0 +1,6 @@
+[submodule "gtest"]
+	path = modules/gtest
+	url = https://github.com/google/googletest
+[submodule "cmake-helpers"]
+	path = modules/cmake-helpers
+	url = https://github.com/bijn/cmake-helpers

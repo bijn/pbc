@@ -1,0 +1,17 @@
+// pbc
+// Config.hh
+
+#ifndef pbc_CONFIG_HH
+#define pbc_CONFIG_HH
+
+#define VERSION_MAJOR @PROJECT_VERSION_MAJOR@
+#define VERSION_MINOR @PROJECT_VERSION_MINOR@
+#define VERSION_PATCH @PROJECT_VERSION_PATCH@
+#define VERSION_STRING                          \
+  "@PROJECT_VERSION_MAJOR@."                    \
+  "@PROJECT_VERSION_MINOR@."                    \
+  "@PROJECT_VERSION_PATCH@"                     \
+
+// Other stuff
+
+#endif
