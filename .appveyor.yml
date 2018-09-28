@@ -28,12 +28,12 @@ install:
 build_script:
   # Linux
   - sh: mkdir build && cd build
-  - sh: cmake .. -DCMAKE_BUILD_TYPE=$configuration -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 -DCMAKE_C_COMPILER=/usr/bin/gcc-8
+  - sh: cmake .. -DCMAKE_BUILD_TYPE=$configuration -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DWITH_pbc_TESTS=yes
   - sh: make -j4 
 
   # Windows
   - cmd: mkdir build && cd build
-  - cmd: cmake .. %CMAKE_GENERATOR% -DCMAKE_BUILD_TYPE=%configuration% 
+  - cmd: cmake .. %CMAKE_GENERATOR% -DCMAKE_BUILD_TYPE=%configuration% -DWITH_pbc_TESTS=yes
   - cmd: cmake --build . --config %configuration% -- /maxcpucount:4 /verbosity:quiet
 
 test_script:
