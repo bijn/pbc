@@ -16,7 +16,7 @@ configuration:
 init:
   - sh: sudo add-apt-repository ppa:ubuntu-toolchain-r/test
   - sh: sudo apt update
-  - sh: sudo apt install gcc-8 g++-8
+  - sh: sudo apt --yes install gcc-8 g++-8
 
 install:
   # Both
